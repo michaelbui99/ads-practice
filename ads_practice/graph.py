@@ -103,7 +103,7 @@ def do_bfs(
     path.pop()
 
 
-def bfs_adjlist(graph: AdjacencyList, source: int, query: int) -> list[int]:
+def dfs_adjlist(graph: AdjacencyList, source: int, query: int) -> list[int]:
     seen: dict[int, bool] = {}
     path: list[int] = []
     do_bfs(graph, source, query, seen, path)

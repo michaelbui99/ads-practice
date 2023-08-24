@@ -1,4 +1,4 @@
-from ads_practice.graph import AdjacencyList, bfs_adjmatrix, bfs_adjlist
+from ads_practice.graph import AdjacencyList, bfs_adjmatrix, dfs_adjlist
 
 
 def test_adjlist_direction():
@@ -28,7 +28,7 @@ def test_bfs_adjmatrix():
     assert bfs_adjmatrix(graph, 6, 0) == []
 
 
-def test_bfs_adjlist():
+def test_dfs_adjlist():
     graph = AdjacencyList()
     graph.add_edge(origin=0, destination=1, weight=3)
     graph.add_edge(origin=0, destination=2, weight=3)
@@ -41,5 +41,5 @@ def test_bfs_adjlist():
     graph.add_edge(origin=5, destination=6, weight=1)
     graph.add_edge(origin=6, destination=3, weight=1)
 
-    assert bfs_adjlist(graph, 0, 6) == [0, 1, 4, 5, 6]
-    assert bfs_adjlist(graph, 6, 0) == []
+    assert dfs_adjlist(graph, 0, 6) == [0, 1, 4, 5, 6]
+    assert dfs_adjlist(graph, 6, 0) == []
