@@ -83,7 +83,7 @@ def bfs_adjmatrix(graph: list[list[int]], source: int, query: int) -> list[int]:
     return []
 
 
-def do_bfs(
+def do_dfs(
     graph: AdjacencyList, curr: int, query: int, seen: dict[int, bool], path: list[int]
 ) -> bool:
     if curr in seen and seen[curr]:
@@ -97,7 +97,7 @@ def do_bfs(
 
     edges = graph.get_edges(curr)
     for edge in edges:
-        if do_bfs(graph, edge.to, query, seen, path):
+        if do_dfs(graph, edge.to, query, seen, path):
             return True
 
     path.pop()
@@ -106,5 +106,5 @@ def do_bfs(
 def dfs_adjlist(graph: AdjacencyList, source: int, query: int) -> list[int]:
     seen: dict[int, bool] = {}
     path: list[int] = []
-    do_bfs(graph, source, query, seen, path)
+    do_dfs(graph, source, query, seen, path)
     return path
